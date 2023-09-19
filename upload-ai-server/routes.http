@@ -1,0 +1,24 @@
+# @name get-prompts
+GET http://localhost:3333/prompts
+
+###
+
+# @name upload
+POST http://localhost:3333/videos
+Content-Type: multipart/form-data; boundary=----teste
+
+------teste
+Content-Disposition: form-data; name="file"; filename="exemplo_audio.mp3"
+Content-Type: audio/mpeg
+
+< ./exemplo_audio.mp3
+------teste--
+
+###
+POST http://localhost:3333/videos/3eb325f7-5e54-4418-b6ca-24478c7e26b3/transcription
+Content-Type: application/json
+
+{
+  "prompt": "valor, procurar"
+}
+
